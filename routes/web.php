@@ -11,6 +11,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TopPageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RecruitController;
+use App\Http\Controllers\AptitudeTestController;
+use App\Http\Controllers\ConsultationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -80,6 +82,10 @@ Route::get('/recruit_touroku', function () {
     return view('recruit_touroku');
 });
 
+Route::get('/recruit_touroku_kakunin', function () {
+    return view('recruit_touroku_kakunin');
+});
+
 Route::get('/recruit', function () {
     return view('recruit');
 });
@@ -87,6 +93,31 @@ Route::get('/recruit', function () {
 Route::get('/review', function () {
     return view('review');
 });
+
+Route::get('/received', function () {
+    return view('received');
+});
+
+
+// 相談リクエスト送信
+Route::post('/consult/request/{to_user_id}', [ConsultationController::class, 'sendRequest'])
+    ->middleware('auth') // ログインユーザーだけ
+    ->name('consult.request');
+
+Route::get('/consult/received', [ConsultationController::class, 'received'])
+    ->middleware('auth')
+    ->name('consult.received');
+
+Route::post('/consult/approve/{id}', [ConsultationController::class, 'approve'])
+    ->middleware('auth')
+    ->name('consult.approve');
+
+
+Route::post('/aptitude_test/submit', [AptitudeTestController::class, 'submitAptitudeTest'])->name('aptitude_test.submit');
+Route::get('/aptitude-test', [AptitudeTestController::class, 'showQuestion'])->name('aptitude_test.form');
+Route::post('/aptitude-test/next', [AptitudeTestController::class, 'nextQuestion'])->name('aptitude_test.next');
+Route::post('/aptitude-test/submit', [AptitudeTestController::class, 'submitAnswers'])->name('aptitude_test.submit');
+
 
 Route::get('/dashboard', [IconController::class, 'index']);
 Route::get('/icon/create',[IconController::class, 'create']);
@@ -118,6 +149,9 @@ Route::get('/comps_database', [CompsDatabaseController::class, 'index'])->name('
 Route::post('/comps_database', [CompsDatabaseController::class, 'show']);
 Route::get('/comps_database', [CompsDatabaseController::class, 'showCompanies'])->name('comps_database');
 
+Route::get('/review_touroku_kakunin', function () {
+    return view('review_touroku_kakunin');
+})->name('review_touroku_kakunin');
 Route::get('/review_touroku', [ReviewController::class, 'create'])->name('review_touroku.create'); // フォーム表示
 Route::post('/review_touroku', [ReviewController::class, 'store'])->name('review_touroku.store'); // データ登録
 

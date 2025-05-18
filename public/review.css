@@ -1,150 +1,109 @@
-
-.title{
-    background-color: #4281C8;
-    display: flex;
-    align-items: center;    /* 垂直方向の中央揃え */
-}
-
-div.title1 {
+body {
     font-family: 'Zen Maru Gothic', sans-serif;
-    font-size: 36px;
-    color: white !important;
-    padding: 10px;
-    margin-left: 20px;
-    align-items: center;    /* 垂直方向の中央揃え */
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-div.title2 {
-    font-family: 'Zen Maru Gothic', sans-serif;
-    font-size: 18px;
-    color: white !important;
-    padding: 10px;
-    align-items: center;    /* 垂直方向の中央揃え */
-}
-
-.pagename {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Zen Maru Gothic', sans-serif;
-    font-size: 24px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    color: #4281C8;
-}
-
-/* フォーム */
-.form-container {
-    margin: 20px;
-}
-
-select#comp_name {
-    font-family: 'Zen Maru Gothic', sans-serif;
-    font-size: 18px;
-    padding: 8px;
-    margin-top: 8px;
-}
-
-label.sentaku {
-    font-family: 'Zen Maru Gothic', sans-serif;    
-    font-size: 20px;
-    color: black;
-    margin-right: 24px;
-}
-
-button.button1 {
-    background-color: #4281C8;
+.title {
+    background-color: #3178C6;
     color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 12px;
+    padding: 1rem 2rem;
+    text-align: left;
 }
 
-button.button1:hover {
-    background-color: #285a8d;
+.title1 {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-p {
-    font-family: 'Zen Maru Gothic', sans-serif;    
-    font-size: 20px;
-    color: black;
-    margin-left: 24px;
+.title2 {
+    font-size: 0.9rem;
 }
 
-.content {
-    justify-content: center;
+h2 {
     text-align: center;
-    font-family: 'Zen Maru Gothic', sans-serif;    
-    background-color: white; /* 背景色 */
-    border-radius: 18px;       /* 角丸 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
-    padding: 20px;             /* 内側余白 */
-    margin: 30px auto;         /* 上下のマージン */
-    width: 80%;                /* コンテナの幅 */
-    border: 1px solid #ddd;    /* 枠線 */
-}
-/* クチコミカード全体 */
-.review-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    border: 1px solid #ddd;
-    font-family: 'Zen Maru Gothic', sans-serif;
-    color: #333;
+    margin-top: 2rem;
+    font-size: 1.4rem;
 }
 
-/* ヘッダー部分 */
+/* 口コミ全体コンテナをセンターに */
+.container {
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+
+/* レビューカードデザイン */
+.review-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
 .review-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
-/* クチコミタイトル */
 .review-header h3 {
-    font-size: 20px;
     font-weight: bold;
-    color: #4281C8;
+    font-size: 1.1rem;
+    color: #3178C6;
     margin: 0;
 }
 
-/* 総合評価の表示 */
 .review-rating {
-    font-size: 16px;
-    color: #666;
-}
-
-/* 星評価 */
-.stars {
-    font-size: 18px;
-    color: #FFD700; /* ゴールドカラー */
-}
-
-/* 詳細部分 */
-.review-details {
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #555;
-    margin-bottom: 10px;
+    margin-top: 0.5rem;
 }
 
-/* コメント部分 */
+.stars {
+    color: #f5b301;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+}
+
+.review-details {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0.8rem 0;
+}
+
 .review-comment {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #444;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
 }
 
-.copyright {
-    margin-bottom: 20px;
-    bottom: 20px;
-    width: 100%;
+/* 相談ボタンスマート化 */
+.button-consult {
+    padding: 0.4rem 1rem;
+    border: 2px solid #3178C6;
+    background-color: transparent;
+    color: #3178C6;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(49, 120, 198, 0.1);
+}
+
+.button-consult:hover {
+    background-color: #3178C6;
+    color: white;
+}
+
+footer.copyright {
     text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    padding: 2rem 0;
+    margin-bottom: 100px;
 }
-

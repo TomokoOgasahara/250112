@@ -31,4 +31,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+'dify' => [
+    'api_key' => env('DIFY_API_KEY'),
+    'tool_id' => env('DIFY_TOOL_ID'),
+    'tool_name' => env('DIFY_TOOL_NAME'),
+],
+
+'openai' => [
+    'api_key' => env('OPENAI_API_KEY'),
+],
+
 ];

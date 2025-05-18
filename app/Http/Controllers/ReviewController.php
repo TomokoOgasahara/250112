@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
+    /**
+     * クチコミ登録フォームの表示
+     */
     public function create()
     {
-        return view('review_touroku'); // フォーム用のビュー
+        return view('review_touroku');
     }
 
-    // * フォームからのPOSTデータを保存
+    /**
+     * クチコミ投稿処理
+     */
     public function store(Request $request)
     {
-        // バリデーション
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -35,54 +40,48 @@ class ReviewController extends Controller
             'reviews' => 'nullable|string|max:500',
         ]);
 
-        // データ登録
-        DB::table('review')->insert([
+        Review::create([
+            'user_id' => Auth::id(), // これがあること！
             'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'gender' => $request->input('gender'),
-            'comp_name' => $request->input('comp_name'),
-            'speciality' => $request->input('speciality'),
-            'employment_status' => $request->input('employment_status'),
-            'years_of_service' => $request->input('years_of_service'),            
-            'age_group' => $request->input('age_group'),
-            'employment_type' => $request->input('employment_type'),
-            'growth_potential' => $request->input('growth_potential'),
-            'job_satisfaction' => $request->input('job_satisfaction'),
-            'organizational_climate' => $request->input('organizational_climate'),
-            'social_contribution' => $request->input('social_contribution'),
-            'salary' => $request->input('salary'),
-            'benefits' => $request->input('benefits'),
-            'female_advancement' => $request->input('female_advancement'),
-            'reviews' => $request->input('reviews'),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'comp_name' => $request->comp_name,
+            'speciality' => $request->speciality,
+            'employment_status' => $request->employment_status,
+            'years_of_service' => $request->years_of_service,
+            'age_group' => $request->age_group,
+            'employment_type' => $request->employment_type,
+            'growth_potential' => $request->growth_potential,
+            'job_satisfaction' => $request->job_satisfaction,
+            'organizational_climate' => $request->organizational_climate,
+            'social_contribution' => $request->social_contribution,
+            'salary' => $request->salary,
+            'benefits' => $request->benefits,
+            'female_advancement' => $request->female_advancement,
+            'reviews' => $request->reviews,
         ]);
 
-        // 登録後のリダイレクト
         return redirect('review_touroku_kakunin')->with('success', '登録が完了しました！');
     }
 
+    /**
+     * クチコミ一覧表示
+     */
     public function showReview(Request $request)
     {
-        // Reviewテーブルからすべての企業名を取得（重複を除く）
-        $companies = DB::table('review')
-            ->select('comp_name')
-            ->distinct()
-            ->get();
+        $companies = Review::select('comp_name')->distinct()->get();
 
-        // 選択された企業のクチコミを取得
-        $review = [];
+        $review = collect(); // デフォルトは空のコレクション
         if ($request->has('comp_name')) {
-            $review = DB::table('review')
+            $review = Review::with('user')
                 ->where('comp_name', $request->input('comp_name'))
-                ->get(); // 複数データを取得
+                ->get();
         }
 
-        // データをビューに渡す
         return view('review', [
-            'companies' => $companies, // 企業リストをビューに渡す
+            'companies' => $companies,
             'comp_name' => $request->input('comp_name'),
-            'review' => $review, // 複数データ
+            'review' => $review,
         ]);
     }
 }

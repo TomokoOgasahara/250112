@@ -30,8 +30,16 @@
 </div>
 
 <div class="button">
-    <div class="button1"><a href="{{ asset('/comps_database') }}">企業情報の検索はこちら</a></div>
-    <div class="button1"><a href="{{ asset('/review_touroku') }}" >口コミ投稿はこちら</a></div>
+
+<div class="button1">
+  <a href="/aptitude-test?step=1">適職診断</a>
+</div>
+<div class="button1">
+  <a href="/comps_database">企業情報</a>
+</div>
+<div class="button1">
+  <a href="/review_touroku">口コミ投稿</a>
+</div>
 </div>
 
 </body>

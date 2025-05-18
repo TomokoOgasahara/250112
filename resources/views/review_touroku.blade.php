@@ -20,7 +20,7 @@
 
 <div style="width: 100%; height: 100%; background: #F1F8FF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px"></div>
 
-    <form method="POST" action="/review_touroku">
+<form method="POST" action="{{ route('review_touroku.store') }}">
     @csrf <!-- Laravelで必要なCSRFトークン -->
         <div  class="form1">
             <label for="name">氏名:</label>

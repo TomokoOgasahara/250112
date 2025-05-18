@@ -1,0 +1,115 @@
+/* 全体フォント */
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #f7f8fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== ヘッダー ===== */
+.title{
+    background-color: #4281C8;
+    display: flex;
+    align-items: center;    /* 垂直方向の中央揃え */
+}
+
+div.title1 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 36px;
+    color: white !important;
+    padding: 10px;
+    margin-left: 20px;
+    align-items: center;    /* 垂直方向の中央揃え */
+}
+
+div.title2 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 18px;
+    color: white !important;
+    padding: 10px;
+    align-items: center;    /* 垂直方向の中央揃え */
+}
+
+.result-wrapper {
+    padding: 2rem;
+}
+
+.result-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.result-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.result-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.result-type {
+    color: #3178C6;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.result-image img {
+    max-width: 50%;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+}
+
+.result-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 1.5rem auto;
+    text-align: left;
+}
+
+.recommendation {
+    margin-top: 1.5rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.recommendation strong {
+    font-weight: bold;
+}
+
+.result-button-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.result-button {
+    background-color: #3178C6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+}
+
+.result-button:hover {
+    background-color: #255a95;
+}
+
+/* ===== フッター ===== */
+footer.copyright {
+    margin-bottom: 20px;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
